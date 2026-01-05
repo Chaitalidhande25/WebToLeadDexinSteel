@@ -22,6 +22,11 @@
             text-align: center;
             margin-bottom: 25px;
         }
+        h3 {
+            margin-top: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
         .row {
             display: flex;
             gap: 20px;
@@ -43,7 +48,7 @@
             resize: vertical;
         }
         .submit-btn {
-            background-color: #28a745;
+            background-color: #0070d2;
             color: white;
             border: none;
             padding: 12px;
@@ -54,7 +59,7 @@
             border-radius: 4px;
         }
         .submit-btn:hover {
-            background-color: #218838;
+            background-color: #005fb2;
         }
     </style>
 </head>
@@ -70,7 +75,7 @@
         <input type="hidden" name="oid" value="00DKj00000pTxrb">
         <input type="hidden" name="retURL" value="https://google.com">
 
-        <!-- REQUIRED SAFE FIELDS -->
+        <!-- Required defaults -->
         <input type="hidden" name="lead_source" value="Website">
         <input type="hidden" name="status" value="Open - Not Contacted">
 
@@ -102,8 +107,8 @@
         <label>Company *</label>
         <input type="text" name="company" required>
 
-        <!-- Address Section -->
-        <h3 style="margin-top:25px;">Address</h3>
+        <!-- ADDRESS SECTION -->
+        <h3>Address</h3>
 
         <label>Street</label>
         <textarea name="street" rows="2"></textarea>
