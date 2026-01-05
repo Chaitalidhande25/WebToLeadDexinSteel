@@ -2,119 +2,166 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Contact Us | Dexin Steel</title>
+<title>Request a Quote | Dexin Steel</title>
 
 <style>
 body {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
-  background-color: #eaf6f2;
+  background-color: #eef5fb;
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  padding: 40px 10px;
 }
 
 /* Main Container */
-.contact-wrapper {
+.container {
+  display: flex;
   width: 100%;
-  max-width: 720px;
+  max-width: 1100px;
   background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
-  padding: 40px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
 }
 
-/* Logo */
-.logo {
+/* LEFT PANEL */
+.left {
+  width: 40%;
+  background: linear-gradient(135deg, #cfe8ff, #e6f2ff);
+  color: #0b3558;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.left img {
+  max-width: 140px;
+  margin: 0 auto 20px;
+}
+
+.left h2 {
+  margin-bottom: 15px;
+}
+
+.left p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* RIGHT PANEL */
+.right {
+  width: 60%;
+  padding: 40px 35px;
+}
+
+.right h2 {
   text-align: center;
   margin-bottom: 25px;
-}
-.logo img {
-  max-width: 220px;
+  color: #1b4f72;
 }
 
-/* Heading */
-.contact-wrapper h2 {
-  text-align: center;
-  color: #2f7d6d;
-  font-weight: 600;
-  margin-bottom: 30px;
-}
-
-/* Form */
+/* FORM */
 form {
   display: flex;
   flex-direction: column;
 }
 
-/* Labels */
-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: #555;
-  margin-bottom: 6px;
-  text-transform: uppercase;
+.form-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
 }
 
-/* Inputs */
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
 input[type="text"],
 input[type="email"],
-textarea {
-  border: none;
-  border-bottom: 1px solid #cfd8dc;
-  padding: 10px 5px;
-  font-size: 15px;
-  margin-bottom: 25px;
-  background: transparent;
-  outline: none;
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: #aaa;
-}
-
-input:focus,
-textarea:focus {
-  border-bottom: 2px solid #7bc5b4;
-}
-
-/* Name Row */
-.name-row {
-  display: flex;
-  gap: 20px;
-}
-
-/* Message */
-textarea {
-  resize: none;
-  min-height: 100px;
-}
-
-/* Button */
-button {
-  margin-top: 20px;
-  background: #7bc5b4;
-  color: #ffffff;
-  border: none;
-  padding: 14px;
-  font-size: 16px;
+input[type="number"] {
+  padding: 10px;
+  border: 1px solid #cfd8dc;
   border-radius: 6px;
+  font-size: 14px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #5dade2;
+  box-shadow: 0 0 5px rgba(93,173,226,0.4);
+}
+
+/* PRODUCT ROW */
+.product-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.product-row input {
+  flex: 1;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: red;
   cursor: pointer;
-  transition: background 0.3s ease;
 }
 
-button:hover {
-  background: #63b1a0;
+/* BUTTONS */
+.add-btn {
+  margin: 10px auto;
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .contact-wrapper {
-    padding: 25px;
+.add-btn:hover {
+  background: #2e86c1;
+}
+
+.submit-btn {
+  margin-top: 25px;
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: #218838;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
   }
-  .name-row {
+  .left, .right {
+    width: 100%;
+  }
+  .form-row {
     flex-direction: column;
   }
 }
@@ -123,51 +170,109 @@ button:hover {
 
 <body>
 
-<div class="contact-wrapper">
+<div class="container">
 
-  <!-- Dexin Steel Logo -->
-  <div class="logo">
+  <!-- LEFT INFO PANEL -->
+  <div class="left">
     <img src="dexin-steel-logo.png" alt="Dexin Steel Logo">
+    <h2>Dexin Steel</h2>
+    <p>
+      Trusted steel solutions provider delivering high-quality products
+      for industrial and infrastructure needs worldwide.
+    </p>
   </div>
 
-  <h2>Send Us A Message</h2>
+  <!-- RIGHT FORM -->
+  <div class="right">
+    <h2>Request For Quote</h2>
 
-  <!-- Salesforce Web-to-Lead Form -->
-  <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"
-        method="POST">
+    <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"
+          method="POST"
+          onsubmit="combineProductData()">
 
-    <!-- Salesforce Hidden Fields -->
-    <input type="hidden" name="oid" value="00DgL000006lUon">
-    <input type="hidden" name="retURL" value="http://google.com">
+      <!-- Salesforce Hidden Fields -->
+      <input type="hidden" name="oid" value="00DgL000006lUon">
+      <input type="hidden" name="retURL" value="http://google.com">
 
-    <!-- Name -->
-    <label>Tell Us Your Name *</label>
-    <div class="name-row">
-      <input type="text" name="first_name" placeholder="First name" required>
-      <input type="text" name="last_name" placeholder="Last name" required>
-    </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" name="first_name" required>
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" name="last_name" required>
+        </div>
+      </div>
 
-    <!-- Email -->
-    <label>Enter Your Email *</label>
-    <input type="email" name="email" placeholder="Eg. example@email.com" required>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label>Mobile</label>
+          <input type="text" name="mobile" required>
+        </div>
+      </div>
 
-    <!-- Phone -->
-    <label>Enter Phone Number</label>
-    <input type="text" name="mobile" placeholder="Eg. +1 800 000000">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Company</label>
+          <input type="text" name="company">
+        </div>
+      </div>
 
-    <!-- Company -->
-    <label>Company</label>
-    <input type="text" name="company" placeholder="Company name">
+      <label>Products Requested</label>
 
-    <!-- Message -->
-    <label>Message *</label>
-    <textarea name="description" placeholder="Write us a message" required></textarea>
+      <div id="productContainer">
+        <div class="product-row">
+          <input type="text" placeholder="Product Name">
+          <input type="number" placeholder="Quantity" min="1">
+          <button type="button" class="remove-btn" onclick="removeRow(this)">❌</button>
+        </div>
+      </div>
 
-    <button type="submit">Send Message</button>
+      <button type="button" class="add-btn" onclick="addProduct()">+ Add Product</button>
 
-  </form>
+      <!-- Salesforce Custom Field -->
+      <input type="hidden" id="product_summary" name="00NgL000012za5B">
+
+      <button type="submit" class="submit-btn">Submit Quote Request</button>
+
+    </form>
+  </div>
 
 </div>
+
+<script>
+function addProduct() {
+  const container = document.getElementById("productContainer");
+  const row = document.createElement("div");
+  row.className = "product-row";
+  row.innerHTML = `
+    <input type="text" placeholder="Product Name">
+    <input type="number" placeholder="Quantity" min="1">
+    <button type="button" class="remove-btn" onclick="removeRow(this)">❌</button>
+  `;
+  container.appendChild(row);
+}
+
+function removeRow(btn) {
+  btn.closest(".product-row").remove();
+}
+
+function combineProductData() {
+  const rows = document.querySelectorAll(".product-row");
+  const data = [];
+  rows.forEach(row => {
+    const name = row.querySelector("input[type='text']").value;
+    const qty = row.querySelector("input[type='number']").value;
+    if (name && qty) data.push(`${name} - ${qty}`);
+  });
+  document.getElementById("product_summary").value = data.join(", ");
+}
+</script>
 
 </body>
 </html>
