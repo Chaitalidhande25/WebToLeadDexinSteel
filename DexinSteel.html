@@ -2,141 +2,142 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Request a Quote</title>
+<title>Contact Us – Dexin Steel</title>
+
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f8f9fa;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #e9f5f1;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 50px 10px;
+  padding: 50px 15px;
 }
 
+/* Main Card */
 .container {
   width: 100%;
   max-width: 700px;
   background: #ffffff;
-  border-radius: 10px;
-  padding: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 40px;
 }
 
+/* Logo */
 .logo {
   text-align: center;
   margin-bottom: 20px;
 }
-
 .logo img {
-  max-width: 120px;
+  max-width: 180px;
 }
 
-h1 {
+/* Heading */
+h2 {
   text-align: center;
-  color: #333;
-  margin-bottom: 20px;
-  font-size: 24px;
+  margin-bottom: 30px;
+  color: #2e6f5e;
+  font-weight: 600;
 }
 
+/* Form */
 form {
   display: flex;
   flex-direction: column;
 }
+
 label {
-  font-size: 14px;
-  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 600;
   color: #555;
-}
-input, select, textarea {
-  padding: 12px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-  width: 100%;
-}
-input:focus, textarea:focus {
-  border-color: #0069d9;
-  outline: none;
-}
-button {
-  padding: 14px;
-  background: #0069d9;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-}
-button:hover {
-  background: #0056b3;
+  margin-bottom: 6px;
+  text-transform: uppercase;
 }
 
-@media(max-width:600px) {
+/* Inputs */
+input[type="text"],
+input[type="email"],
+textarea {
+  border: none;
+  border-bottom: 1px solid #cfd8dc;
+  padding: 10px 5px;
+  font-size: 15px;
+  margin-bottom: 25px;
+  outline: none;
+  background: transparent;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #aaa;
+}
+
+input:focus,
+textarea:focus {
+  border-bottom: 2px solid #6fb8a8;
+}
+
+/* Name Row */
+.name-row {
+  display: flex;
+  gap: 20px;
+}
+
+.name-row div {
+  flex: 1;
+}
+
+/* Textarea */
+textarea {
+  resize: none;
+  min-height: 90px;
+}
+
+/* Submit Button */
+button {
+  margin-top: 20px;
+  background: #6fb8a8;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #5aa596;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
   .container {
-    padding: 20px;
+    padding: 25px;
+  }
+  .name-row {
+    flex-direction: column;
   }
 }
 </style>
 </head>
 
 <body>
+
 <div class="container">
 
+  <!-- Dexin Steel Logo -->
   <div class="logo">
-    <img src="images/your-logo.png" alt="Company Logo">
+    <img src="dexin-steel-logo.png" alt="Dexin Steel Logo">
   </div>
 
-  <h1>Request a Quote</h1>
+  <h2>Send Us A Message</h2>
 
+  <!-- Salesforce Web-to-Lead Form -->
   <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"
-        method="POST"
-        onsubmit="combineProductTextData()">
+        method="POST">
 
-    <!-- Salesforce Hidden -->
+    <!-- Salesforce Required Hidden Fields -->
     <input type="hidden" name="oid" value="00DgL000006lUon">
-    <input type="hidden" name="retURL" value="http://google.com">
-
-    <label>First Name</label>
-    <input name="first_name" type="text" required>
-
-    <label>Last Name</label>
-    <input name="last_name" type="text" required>
-
-    <label>Email</label>
-    <input name="email" type="email" required>
-
-    <label>Phone</label>
-    <input name="mobile" type="text" required>
-
-    <label>Company</label>
-    <input name="company" type="text">
-
-    <label>Your Message</label>
-    <textarea name="description" rows="4" placeholder="Tell us more..."></textarea>
-
-    <h3 style="font-size:18px;color:#333;margin-top:15px;">Products</h3>
-
-    <div id="productContainer">
-      <input type="text" placeholder="Product Name">
-      <input type="number" placeholder="Quantity" min="1">
-    </div>
-
-    <input type="hidden" id="product_summary" name="00NgL000012za5B">
-
-    <button type="submit">Submit Request</button>
-  </form>
-</div>
-
-<script>
-function combineProductTextData() {
-  const product = document.querySelector("#productContainer input[type='text']").value;
-  const qty = document.querySelector("#productContainer input[type='number']").value;
-  document.getElementById("product_summary").value = product + " - " + qty;
-}
-</script>
-
-</body>
-</html>
-
+    <input type="hidden" name="retURL" value="h
