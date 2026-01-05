@@ -1,102 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
-    <title>Contact Us – ValueHub</title>
+<meta charset="UTF-8">
+<title>Request a Quote</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 10px;
+}
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f7fa;
-        }
-        .container {
-            width: 450px;
-            margin: 40px auto;
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 6px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            margin-top: 12px;
-            font-weight: bold;
-        }
-        input, textarea, select {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-        }
-        input[type="submit"] {
-            background-color: #0070d2;
-            color: #fff;
-            border: none;
-            margin-top: 20px;
-            cursor: pointer;
-        }
-        input[type="submit"]:hover {
-            background-color: #005fb2;
-        }
-    </style>
+.container {
+  width: 100%;
+  max-width: 700px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo img {
+  max-width: 120px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #555;
+}
+input, select, textarea {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 100%;
+}
+input:focus, textarea:focus {
+  border-color: #0069d9;
+  outline: none;
+}
+button {
+  padding: 14px;
+  background: #0069d9;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+button:hover {
+  background: #0056b3;
+}
+
+@media(max-width:600px) {
+  .container {
+    padding: 20px;
+  }
+}
+</style>
 </head>
 
 <body>
-
 <div class="container">
-<h2>Contact Us</h2>
 
-<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DKj00000pTxrb" method="POST">
+  <div class="logo">
+    <img src="images/your-logo.png" alt="Company Logo">
+  </div>
 
-<input type="hidden" name="oid" value="00DKj00000pTxrb">
-<input type="hidden" name="retURL" value="https://valuehub-contact-us.tiiny.site/thankyou.html">
+  <h1>Request a Quote</h1>
 
-<label>First Name *</label>
-<input type="text" name="first_name" required>
+  <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"
+        method="POST"
+        onsubmit="combineProductTextData()">
 
-<label>Last Name *</label>
-<input type="text" name="last_name" required>
+    <!-- Salesforce Hidden -->
+    <input type="hidden" name="oid" value="00DgL000006lUon">
+    <input type="hidden" name="retURL" value="http://google.com">
 
-<label>Email *</label>
-<input type="email" name="email" required>
+    <label>First Name</label>
+    <input name="first_name" type="text" required>
 
-<label>Phone</label>
-<input type="text" name="phone">
+    <label>Last Name</label>
+    <input name="last_name" type="text" required>
 
-<label>Company *</label>
-<input type="text" name="company" required>
+    <label>Email</label>
+    <input name="email" type="email" required>
 
-<label>Website</label>
-<input type="text" name="url">
+    <label>Phone</label>
+    <input name="mobile" type="text" required>
 
-<label>Country</label>
-<input type="text" name="country">
+    <label>Company</label>
+    <input name="company" type="text">
 
-<label>State</label>
-<input type="text" name="state">
+    <label>Your Message</label>
+    <textarea name="description" rows="4" placeholder="Tell us more..."></textarea>
 
-<label>City</label>
-<input type="text" name="city">
+    <h3 style="font-size:18px;color:#333;margin-top:15px;">Products</h3>
 
-<label>Service Interested *</label>
-<select name="00NKj00001TAdAv" required>
-    <option value="">-- Select --</option>
-    <option value="Salesforce Implementation">Salesforce Implementation</option>
-    <option value="Salesforce Support">Salesforce Support</option>
-    <option value="Salesforce Integration">Salesforce Integration</option>
-    <option value="Consulting">Consulting</option>
-</select>
+    <div id="productContainer">
+      <input type="text" placeholder="Product Name">
+      <input type="number" placeholder="Quantity" min="1">
+    </div>
 
-<label>Description</label>
-<textarea name="description" rows="4"></textarea>
+    <input type="hidden" id="product_summary" name="00NgL000012za5B">
 
-<input type="submit" value="Submit">
-
-</form>
+    <button type="submit">Submit Request</button>
+  </form>
 </div>
+
+<script>
+function combineProductTextData() {
+  const product = document.querySelector("#productContainer input[type='text']").value;
+  const qty = document.querySelector("#productContainer input[type='number']").value;
+  document.getElementById("product_summary").value = product + " - " + qty;
+}
+</script>
 
 </body>
 </html>
+
